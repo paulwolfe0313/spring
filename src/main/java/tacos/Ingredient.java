@@ -20,7 +20,7 @@ public class Ingredient {
   private Type type;
 
   public enum Type {
-    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+    CHOCOLATE_BASE, NUTS, FRUIT, FILLING, TOPPING
   }
 
 }
