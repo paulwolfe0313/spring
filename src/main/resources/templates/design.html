@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Taco Cloud</title>
+    <title>Chocolate Bar Creator</title>
     <link rel="stylesheet" th:href="@{/styles.css}" />
+    
   </head>
 
   <body>
-    <h1>Design your taco!</h1>
-    <img th:src="@{/images/TacoCloud.png}"/>
+    <h1>Design your Chocolate Bar!</h1>
+    <img th:src="@{https://1000logos.net/wp-content/uploads/2020/09/Wonka-Logo.png}"/>
 
     <form method="POST" th:object="${taco}">
 
@@ -66,14 +67,14 @@
       <div>
 
 
-      <h3>Name your taco creation:</h3>
+      <h3>Name your Chocolate Bar creation:</h3>
       <input type="text" th:field="*{name}"/>
       <span class="validationError"
             th:if="${#fields.hasErrors('name')}"
             th:errors="*{name}">Name Error</span>
       <br/>
 
-      <button>Submit Your Taco</button>
+      <button>Submit Your Chocolate Bar</button>
       </div>
     </form>
   </body>

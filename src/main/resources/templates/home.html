@@ -2,13 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Taco Cloud</title>
+    <title>Chocolate Bar Creator</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: #FFFDD0;
+      }
+      img {
+        max-width: 400px; /* Adjust the size as needed */
+        height: auto;
+      }
+      #design {
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
   </head>
+  
   
   <body>
     <h1>Welcome to...</h1>
-    <img th:src="@{https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB5CW4BebTMJs6qZiorYyKxQFVok4uvQXdpyaYz0oXVg&s}"/>
+    <img th:src="@{https://1000logos.net/wp-content/uploads/2020/09/Wonka-Logo.png}"/>
     
-    <a th:href="@{/design}" id="design">Design a taco</a>
+    <a th:href="@{/design}" id="design">Design a Chocolate Bar</a>
   </body>
 </html>

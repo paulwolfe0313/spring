@@ -27,3 +27,11 @@ div.ingredient-group {
 span.validationError {
 	color: red;
 }
+body {
+  text-align: center;
+  background-color: #FFFDD0; /* Cream color */
+}
+img {
+  max-width: 200px; /* Adjust as needed */
+  height: auto;
+}

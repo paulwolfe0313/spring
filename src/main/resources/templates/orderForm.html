@@ -2,21 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Taco Cloud</title>
+    <title>Chocolate Bar Creator</title>
     <link rel="stylesheet" th:href="@{/styles.css}" />
   </head>
 
   <body>
 
     <form method="POST" th:action="@{/orders}" th:object="${tacoOrder}">
-      <h1>Order your taco creations!</h1>
+      <h1>Order your Chocolate Bar creations!</h1>
 
-      <img th:src="@{/images/TacoCloud.png}"/>
+      <img th:src="@{https://1000logos.net/wp-content/uploads/2020/09/Wonka-Logo.png}"/>
 
-      <h3>Your tacos in this order:</h3>
-      <a th:href="@{/design}" id="another">Design another taco</a><br/>
+      <h3>Your Chocolate Bars in this order:</h3>
+      <a th:href="@{/design}" id="another">Design another Chocolate Bar</a><br/>
       <ul>
-        <li th:each="taco : ${tacoOrder.tacos}"><span th:text="${taco.name}">taco name</span></li>
+        <li th:each="taco : ${tacoOrder.tacos}"><span th:text="${taco.name}">CHocolate Bar name</span></li>
       </ul>
       
       <div th:if="${#fields.hasErrors()}">
@@ -25,7 +25,7 @@
         </span>
       </div>
 
-      <h3>Deliver my taco masterpieces to...</h3>
+      <h3>Deliver my Chocolate Bar masterpieces to...</h3>
       <label for="deliveryName">Name: </label>
       <input type="text" th:field="*{deliveryName}"/>
       <span class="validationError"
