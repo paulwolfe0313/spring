@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import tacos.ChocolateBarOrder;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.Taco;
-import tacos.TacoOrder;
+import tacos.ChocolateBarOrder;
 
 @DataJpaTest
 public class OrderRepositoryTests {
@@ -22,7 +23,7 @@ public class OrderRepositoryTests {
   
   @Test
   public void saveOrderWithTwoTacos() {
-    TacoOrder order = new TacoOrder();
+    ChocolateBarOrder order = new ChocolateBarOrder();
     order.setDeliveryName("Test McTest");
     order.setDeliveryStreet("1234 Test Lane");
     order.setDeliveryCity("Testville");
@@ -32,22 +33,22 @@ public class OrderRepositoryTests {
     order.setCcExpiration("10/23");
     order.setCcCVV("123");
     Taco taco1 = new Taco();
-    taco1.setName("Taco One");
-    taco1.addIngredient(new Ingredient("FLTO", "Flour Tortilla", Type.CHOCOLATE_BASE));
-    taco1.addIngredient(new Ingredient("GRBF", "Ground Beef", Type.NUTS));
-    taco1.addIngredient(new Ingredient("CHED", "Shredded Cheddar", Type.FILLING));
+    taco1.setName("Chocolate Bar One");
+    taco1.addIngredient(new Ingredient("MLK", "Milk Chocolate", Type.CHOCOLATE_BASE));
+    taco1.addIngredient(new Ingredient("ALMD", "Almonds", Type.NUTS));
+    taco1.addIngredient(new Ingredient("CRML", "Caramel", Type.FILLING));
     order.addTaco(taco1);
     Taco taco2 = new Taco();
-    taco2.setName("Taco Two");
-    taco2.addIngredient(new Ingredient("COTO", "Corn Tortilla", Type.CHOCOLATE_BASE));
-    taco2.addIngredient(new Ingredient("CARN", "Carnitas", Type.NUTS));
-    taco2.addIngredient(new Ingredient("JACK", "Monterrey Jack", Type.FILLING));
+    taco2.setName("Chocolate Bar Two");
+   taco1.addIngredient(new Ingredient("DRK", "Dark Chocolate", Type.CHOCOLATE_BASE));
+    taco1.addIngredient(new Ingredient("HZL", "Hazelnuts", Type.NUTS));
+    taco1.addIngredient(new Ingredient("CRML", "Caramel", Type.FILLING));
     order.addTaco(taco2);
     
-    TacoOrder savedOrder = orderRepo.save(order);
+    ChocolateBarOrder savedOrder = orderRepo.save(order);
     assertThat(savedOrder.getId()).isNotNull();
         
-    TacoOrder fetchedOrder = orderRepo.findById(savedOrder.getId()).get();
+    ChocolateBarOrder fetchedOrder = orderRepo.findById(savedOrder.getId()).get();
     assertThat(fetchedOrder.getDeliveryName()).isEqualTo("Test McTest");
     assertThat(fetchedOrder.getDeliveryStreet()).isEqualTo("1234 Test Lane");
     assertThat(fetchedOrder.getDeliveryCity()).isEqualTo("Testville");

@@ -40,7 +40,7 @@ public class HomePageBrowserTest {
     browser.get(homePage);
     
     String titleText = browser.getTitle();
-    Assertions.assertThat(titleText).isEqualTo("Taco Cloud");
+    Assertions.assertThat(titleText).isEqualTo("Chocolate Bar Creator");
     
     String h1Text = browser.findElementByTagName("h1").getText();
     Assertions.assertThat(h1Text).isEqualTo("Welcome to...");
@@ -48,7 +48,7 @@ public class HomePageBrowserTest {
     
     String imgSrc = browser.findElementByTagName("img")
                                               .getAttribute("src");
-    Assertions.assertThat(imgSrc).isEqualTo(homePage + "/images/TacoCloud.png");
+    Assertions.assertThat(imgSrc).isEqualTo(homePage + "{https://1000logos.net/wp-content/uploads/2020/09/Wonka-Logo.png");
   }
   
   

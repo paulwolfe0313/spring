@@ -46,32 +46,32 @@ public class DesignTacoControllerTest {
   @BeforeEach
   public void setup() {
     ingredients = Arrays.asList(
-      new Ingredient("FLTO", "Flour Tortilla", Type.CHOCOLATE_BASE),
-      new Ingredient("COTO", "Corn Tortilla", Type.CHOCOLATE_BASE),
-      new Ingredient("GRBF", "Ground Beef", Type.NUTS),
-      new Ingredient("CARN", "Carnitas", Type.NUTS),
-      new Ingredient("TMTO", "Diced Tomatoes", Type.FRUIT),
-      new Ingredient("LETC", "Lettuce", Type.FRUIT),
-      new Ingredient("CHED", "Cheddar", Type.FILLING),
-      new Ingredient("JACK", "Monterrey Jack", Type.FILLING),
-      new Ingredient("SLSA", "Salsa", Type.TOPPING),
-      new Ingredient("SRCR", "Sour Cream", Type.TOPPING)
+      new Ingredient("MLK", "Milk Chocolate", Type.CHOCOLATE_BASE),
+      new Ingredient("DRK", "Dark Chocolate", Type.CHOCOLATE_BASE),
+      new Ingredient("ALMD", "Almonds", Type.NUTS),
+      new Ingredient("HAZL", "Hazelnuts", Type.NUTS),
+      new Ingredient("CHRY", "Cherries", Type.FRUIT),
+      new Ingredient("STWB", "Strawberries", Type.FRUIT),
+      new Ingredient("CRML", "Caramel", Type.FILLING),
+      new Ingredient("RSPB", "Raspberry Jam", Type.FILLING),
+      new Ingredient("SLTS", "Sea Salt", Type.TOPPING),
+      new Ingredient("SPKL", "Sparkles", Type.TOPPING)
     );
 
     when(ingredientRepository.findAll())
         .thenReturn(ingredients);
 
-    when(ingredientRepository.findById("FLTO")).thenReturn(Optional.of(new Ingredient("FLTO", "Flour Tortilla", Type.CHOCOLATE_BASE)));
-    when(ingredientRepository.findById("GRBF")).thenReturn(Optional.of(new Ingredient("GRBF", "Ground Beef", Type.NUTS)));
-    when(ingredientRepository.findById("CHED")).thenReturn(Optional.of(new Ingredient("CHED", "Cheddar", Type.FILLING)));
+    when(ingredientRepository.findById("MLK")).thenReturn(Optional.of(new Ingredient("MLK", "Milk Chocolate", Type.CHOCOLATE_BASE)));
+    when(ingredientRepository.findById("ALMD")).thenReturn(Optional.of(new Ingredient("ALMD", "Almonds", Type.NUTS)));
+    when(ingredientRepository.findById("CRML")).thenReturn(Optional.of(new Ingredient("CRML", "Caramel", Type.FILLING)));
     design = new Taco();
     design.setName("Test Taco");
 
     design.setIngredients(
         Arrays.asList(
-            new Ingredient("FLTO", "Flour Tortilla", Type.CHOCOLATE_BASE),
-            new Ingredient("GRBF", "Ground Beef", Type.NUTS),
-            new Ingredient("CHED", "Cheddar", Type.FILLING)));
+            new Ingredient("MLK", "Milk Chocolate", Type.CHOCOLATE_BASE),
+            new Ingredient("ALMD", "Almonds", Type.NUTS),
+            new Ingredient("CRML", "Caramel", Type.FILLING)));
 
   }
 
@@ -80,17 +80,17 @@ public class DesignTacoControllerTest {
     mockMvc.perform(get("/design"))
         .andExpect(status().isOk())
         .andExpect(view().name("design"))
-        .andExpect(model().attribute("wrap", ingredients.subList(0, 2)))
-        .andExpect(model().attribute("protein", ingredients.subList(2, 4)))
-        .andExpect(model().attribute("veggies", ingredients.subList(4, 6)))
-        .andExpect(model().attribute("cheese", ingredients.subList(6, 8)))
-        .andExpect(model().attribute("sauce", ingredients.subList(8, 10)));
+        .andExpect(model().attribute("chocolate_base", ingredients.subList(0, 2)))
+        .andExpect(model().attribute("nuts", ingredients.subList(2, 4)))
+        .andExpect(model().attribute("fruit", ingredients.subList(4, 6)))
+        .andExpect(model().attribute("filling", ingredients.subList(6, 8)))
+        .andExpect(model().attribute("toppping", ingredients.subList(8, 10)));
   }
 
   @Test
   public void processTaco() throws Exception {
     mockMvc.perform(post("/design")
-        .content("name=Test+Taco&ingredients=FLTO,GRBF,CHED")
+        .content("name=Test+Taco&ingredients=MLK,ALMD,CRML")
         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
         .andExpect(status().is3xxRedirection())
         .andExpect(header().stringValues("Location", "/orders/current"));

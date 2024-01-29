@@ -2,9 +2,9 @@ package tacos.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-import tacos.TacoOrder;
+import tacos.ChocolateBarOrder;
 
 public interface OrderRepository 
-         extends CrudRepository<TacoOrder, Long> {
+         extends CrudRepository<ChocolateBarOrder, Long> {
 
 }

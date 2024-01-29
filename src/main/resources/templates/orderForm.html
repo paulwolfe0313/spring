@@ -16,7 +16,7 @@
       <h3>Your Chocolate Bars in this order:</h3>
       <a th:href="@{/design}" id="another">Design another Chocolate Bar</a><br/>
       <ul>
-        <li th:each="taco : ${tacoOrder.tacos}"><span th:text="${taco.name}">CHocolate Bar name</span></li>
+        <li th:each="taco : ${tacoOrder.tacos}"><span th:text="${taco.name}">Chocolate Bar name</span></li>
       </ul>
       
       <div th:if="${#fields.hasErrors()}">

@@ -20,7 +20,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class TacoOrder implements Serializable {
+public class ChocolateBarOrder implements Serializable {
 
   private static final long serialVersionUID = 1L;
 

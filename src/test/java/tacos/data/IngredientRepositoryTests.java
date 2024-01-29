@@ -23,9 +23,9 @@ public class IngredientRepositoryTests {
   
   @Test
   public void findById() {
-    Optional<Ingredient> flto = ingredientRepo.findById("FLTO");
+    Optional<Ingredient> flto = ingredientRepo.findById("MLK");
     assertThat(flto.isPresent()).isTrue();
-    assertThat(flto.get()).isEqualTo(new Ingredient("FLTO", "Flour Tortilla", Type.CHOCOLATE_BASE));
+    assertThat(flto.get()).isEqualTo(new Ingredient("MLK", "Milk Chocolate", Type.CHOCOLATE_BASE));
     
     Optional<Ingredient> xxxx = ingredientRepo.findById("XXXX");
     assertThat(xxxx.isEmpty()).isTrue();

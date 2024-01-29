@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
-import tacos.TacoOrder;
+import tacos.ChocolateBarOrder;
 import tacos.Taco;
 import tacos.data.IngredientRepository;
 
@@ -48,8 +48,8 @@ public class DesignTacoController {
   }
 
   @ModelAttribute(name = "tacoOrder")
-  public TacoOrder order() {
-    return new TacoOrder();
+  public ChocolateBarOrder order() {
+    return new ChocolateBarOrder();
   }
 
   @ModelAttribute(name = "taco")
@@ -65,7 +65,7 @@ public class DesignTacoController {
   @PostMapping
   public String processTaco(
       @Valid Taco taco, Errors errors,
-      @ModelAttribute TacoOrder tacoOrder) {
+      @ModelAttribute ChocolateBarOrder tacoOrder) {
 
     if (errors.hasErrors()) {
       return "design";
